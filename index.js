@@ -8,6 +8,7 @@ for(var i = 0 ; i <numOfDrumBtns ; i++){
         
         var buttonInnerHTML = this.innerHTML;  
         makesound(buttonInnerHTML);
+        animateBtn(buttonInnerHTML);
         
     });
 }
@@ -16,6 +17,7 @@ for(var i = 0 ; i <numOfDrumBtns ; i++){
 
 document.addEventListener("keypress" , function(event){
     makesound(event.key);
+        animateBtn(event.key);
 });
 
 // Making Sound on key press
@@ -119,3 +121,15 @@ function makesound(key) {
     }
 
 }
+
+function animateBtn(curKey) {
+        var activeBtn = document.querySelector("." + curKey);
+        activeBtn.classList.add("pressed");
+        
+        setTimeout(function(){
+                activeBtn.classList.remove("pressed");
+        } , 100)
+}
+        
+
+
